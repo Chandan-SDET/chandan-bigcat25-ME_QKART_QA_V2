@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Home {
     RemoteWebDriver driver;
@@ -30,7 +29,6 @@ public class Home {
             WebElement logout_button = driver.findElement(By.className("MuiButton-text"));
             logout_button.click();
 
-            // SLEEP_STMT_10: Wait for Logout to complete
             // Wait for Logout to Complete
             Thread.sleep(3000);
 
@@ -52,12 +50,7 @@ public class Home {
             WebElement search = driver.findElement(By.xpath("(//input[@name='search'])[1]"));
             search.clear();
             search.sendKeys(product);
-            Thread.sleep(4000); //removed
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.or(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[text()='Add to cart']")), 
-            ExpectedConditions.presenceOfElementLocated(By.xpath("//h4[text()=' No products found ']"))));
-        //    WebDriverWait wait= new WebDriverWait(driver, 10);
-        //   wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//button[text()='Add to cart']"))   );
+            Thread.sleep(4000);
             // List<WebElement> searchResults =
             // driver.findElements(By.xpath("//p[@class='MuiTypography-root MuiTypography-body1
             // css-yg30e6']"));
@@ -189,7 +182,6 @@ public class Home {
             // Increment or decrement the quantity of the matching product until the current
             // quantity is reached (Note: Keep a look out when then input quantity is 0,
             // here we need to remove the item completely from the cart)
-            WebDriverWait wait = new WebDriverWait(driver, 10);
 
             List<WebElement> productparent= driver.findElements(By.xpath("//div[@Class='MuiBox-root css-1gjj37g']"));
                for(WebElement parentElement: productparent)
@@ -207,24 +199,14 @@ public class Home {
                     if(actint<quantity)
                     {
                         WebElement plus=parentElement.findElement(By.xpath(".//*[@data-testid='AddOutlinedIcon']"));
-                       
                         plus.click();
-                        //Thread.sleep(4000); //removed
-                       String value = actint+1+""; 
-                        wait.until(ExpectedConditions.textToBe(By.xpath("//div[@data-testid='item-qty']") , value));
-                        
+                        Thread.sleep(4000);
                     }
                     else if(actint>quantity)
                     {
                         WebElement minus=parentElement.findElement(By.xpath(".//*[@data-testid='RemoveOutlinedIcon']"));
-                       // wait.until(ExpectedConditions.elementToBeClickable(minus));
-                       
                         minus.click();
-                      //  Thread.sleep(4000); //removed
-                      String value2 = actint-1+""; 
-                        wait.until(ExpectedConditions.textToBe(By.xpath("//div[@data-testid='item-qty']") , value2));
-                        
-                        
+                        Thread.sleep(4000);
                     }
                     else if(actint==quantity)
                     {

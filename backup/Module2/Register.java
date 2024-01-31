@@ -1,7 +1,7 @@
 package QKART_SANITY_LOGIN.Module1;
 
 import java.sql.Timestamp;
-import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -62,19 +62,8 @@ public class Register {
         // Click the register now button
         register_now_button.click();
         // Wait for registration to complete
-        //Thread.sleep(3000); //removed
-         WebDriverWait wait= new WebDriverWait(driver, 5);
-        // wait.until(ExpectedConditions.alertIsPresent("https://crio-qkart-frontend-qa.vercel.app/login") );
-        
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Login to QKart']"))  );
-        }
-        catch (Exception exception) {
-            return false;
-           
-        }
+        Thread.sleep(3000);
 
-        // SLEEP_STMT_06: Wait for new user to get created in the backend
 
         this.lastGeneratedUsername = test_data_username;
 

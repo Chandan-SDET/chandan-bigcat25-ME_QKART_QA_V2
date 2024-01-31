@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Checkout {
     RemoteWebDriver driver;
@@ -41,9 +40,6 @@ public class Checkout {
             txtare.sendKeys(addresString);
             WebElement addButton = driver.findElement(By.xpath("//button[text()='Add']"));
             addButton.click();
-            WebDriverWait wait= new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@Class='address-item not-selected MuiBox-root css-0']/div/p")));
-            //Thread.sleep(4000);
 
             return false;
         } catch (Exception e) {
@@ -91,8 +87,6 @@ public class Checkout {
             // TODO: CRIO_TASK_MODULE_TEST_AUTOMATION - TEST CASE 05: MILESTONE 4
             // Find the "PLACE ORDER" button and click on it
             WebElement plcord = driver.findElement(By.xpath("//button[text()='PLACE ORDER']"));
-            WebDriverWait wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.elementToBeClickable(plcord));
             plcord.click();
 
             return false;
