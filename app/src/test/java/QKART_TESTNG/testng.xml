@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests for QKART Regression">  
+
+<listeners>
+    <listener class-name= "QKART_TESTNG.ListenerClass"></listener>
+</listeners>
+
+    <test name="Test Execution using testNG" verbose="2">      
+        <parameter name="USN" value="testUser"/>
+        <parameter name="PWD" value="abc@123"/>
+        <parameter name="USN" value="testUser"/>
+        <parameter name="PWD" value="abc@123"/>
+         <groups>
+
+            <run>
+               <include name = "Sanity_test"></include>
+              <include name = "Regression_Test"></include>
+
+            </run>
+
+        </groups>
+        <classes>
+            <class name="QKART_TESTNG.QKART_Tests">
+               
+            </class>             
+        </classes>             
+    </test>
+</suite>
+
